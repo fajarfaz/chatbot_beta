@@ -1,4 +1,0 @@
-#Wed Dec 15 11:53:06 ICT 2021
-base.0=G\:\\mobile\\chatbot_sk\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

@@ -1,6 +1,8 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() {
   runApp(MyApp());
@@ -121,14 +123,50 @@ class _HomeState extends State<Home> {
       );
     });
 
-    DetectIntentResponse response = await dialogFlowtter.detectIntent(
-      queryInput: QueryInput(text: TextInput(text: text)),
+    // DetectIntentResponse response = await dialogFlowtter.detectIntent(
+    //   queryInput: QueryInput(text: TextInput(text: text)),
+    // );
+    var chatAnswer;
+    final response = await http.post(
+      Uri.parse('http://192.168.1.21/api/sent_message'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'message': text,
+      }),
     );
+    if (response.statusCode == 201 || response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      chatAnswer = jsonDecode(response.body);
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      print(response.statusCode);
+    }
+    /*if (text == 'lol') {
+      chatAnswer = 'hi answer';
+    } else {
+      chatAnswer = text;
+    }*/
 
-    if (response.message == null) return;
+    // if (response.message == null) return;
     setState(() {
-      addMessage(response.message!);
+      addMessage(Message(text: DialogText(text: [chatAnswer])), false);
     });
+    return sendMessage(text = '');
+  }
+
+  void answerMessage(String chat) async {
+    var chatAnswer = 'a';
+
+    if (chat == 'lol') {
+      chatAnswer = 'hi answer';
+    } else {
+      chatAnswer = 'else answer';
+    }
+    return answerMessage(chatAnswer);
   }
 
   void addMessage(Message message, [bool isUserMessage = false]) {
