@@ -27,6 +27,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController messageController = TextEditingController();
+  String state = 'intro';
 
   List<Map<String, dynamic>> messages = [];
 
@@ -134,6 +135,7 @@ class _HomeState extends State<Home> {
       },
       body: jsonEncode(<String, String>{
         'message': text,
+        'state': state,
       }),
     );
     if (response.statusCode == 201 || response.statusCode == 200) {
