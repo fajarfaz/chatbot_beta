@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController messageController = TextEditingController();
   String state = 'intro';
+  String question = '';
 
   List<Map<String, dynamic>> messages = [];
 
@@ -129,19 +130,24 @@ class _HomeState extends State<Home> {
     // );
     var chatAnswer;
     final response = await http.post(
-      Uri.parse('http://192.168.1.21/api/sent_message'),
+      Uri.parse('http://192.168.1.13/api/sent_message'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
         'message': text,
         'state': state,
+        'question': question,
       }),
     );
     if (response.statusCode == 201 || response.statusCode == 200) {
       // If the server did return a 201 CREATED response,
       // then parse the JSON.
-      chatAnswer = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
+      print(data);
+      chatAnswer = data['message'];
+      state = data['state'];
+      question = data['question'];
     } else {
       // If the server did not return a 201 CREATED response,
       // then throw an exception.
