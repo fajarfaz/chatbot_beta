@@ -130,7 +130,7 @@ class _HomeState extends State<Home> {
     // );
     var chatAnswer;
     final response = await http.post(
-      Uri.parse('http://192.168.1.13/api/sent_message'),
+      Uri.parse('http://chat-end.ragamlima.com/api/sent_message'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
