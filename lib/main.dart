@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Bot',
+      title: 'Chat Bot',
       home: Home(),
     );
   }
@@ -43,15 +43,17 @@ class _HomeState extends State<Home> {
     var themeValue = MediaQuery.of(context).platformBrightness;
     return Scaffold(
       backgroundColor: themeValue == Brightness.dark
-          ? HexColor('#262626')
+          ? HexColor('#9000FF')
           : HexColor('#FFFFFF'),
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: themeValue == Brightness.dark
             ? HexColor('#3C3A3A')
-            : HexColor('#BFBFBF'),
+            : HexColor('#9000FF'),
         title: Text(
-          'Flutter Bot',
+          'Chat Bot',
           style: TextStyle(
+              fontWeight: FontWeight.w900,
               color:
                   themeValue == Brightness.dark ? Colors.white : Colors.black),
         ),
@@ -61,21 +63,24 @@ class _HomeState extends State<Home> {
           children: [
             Expanded(child: Body(messages: messages)),
             Container(
+              decoration: BoxDecoration(
+                color: HexColor('#9000FF'),
+              ),
               padding: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 5,
+                horizontal: 20,
+                vertical: 10,
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
                     child: TextFormField(
                       controller: messageController,
                       style: TextStyle(
-                          color: themeValue == Brightness.dark
-                              ? Colors.white
-                              : Colors.black,
-                          fontFamily: 'Poppins'),
+                          color: Colors.black87, fontFamily: 'Poppins'),
                       decoration: new InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
                         enabledBorder: new OutlineInputBorder(
                             borderSide: new BorderSide(
                                 color: themeValue == Brightness.dark
@@ -93,19 +98,29 @@ class _HomeState extends State<Home> {
                             color: themeValue == Brightness.dark
                                 ? Colors.white
                                 : Colors.black),
-                        hintText: 'Send a message',
+                        hintText: 'Tulis sesuatu untuk menanyakan',
                       ),
                     ),
                   ),
-                  IconButton(
-                    color: themeValue == Brightness.dark
-                        ? Colors.white
-                        : Colors.black,
-                    icon: Icon(Icons.send),
-                    onPressed: () {
-                      sendMessage(messageController.text);
-                      messageController.clear();
-                    },
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.white,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          color: Colors.purple,
+                        ),
+                        onPressed: () {
+                          sendMessage(messageController.text);
+                          messageController.clear();
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
