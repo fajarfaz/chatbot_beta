@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -238,7 +240,7 @@ class Body extends StatelessWidget {
       reverse: true,
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
-        vertical: 20,
+        vertical: 50,
       ),
     );
   }
@@ -257,24 +259,43 @@ class _MessageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 250),
-      child: LayoutBuilder(
-        builder: (context, constrains) {
-          return Container(
-            decoration: BoxDecoration(
-              color: isUserMessage ? Colors.blue : Colors.grey[800],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: const EdgeInsets.all(10),
-            child: Text(
-              message.text?.text?[0] ?? '',
-              style: TextStyle(
-                color: Colors.white,
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        isUserMessage
+            ? Container()
+            : Container(
+                padding: const EdgeInsets.all(5),
+                width: 60,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image(
+                    image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuMuHvOGAgqWeLYyIJM_enw022bkLAIK1kwQ&usqp=CAU'),
+                  ),
+                ),
               ),
-            ),
-          );
-        },
-      ),
-    );
+        LayoutBuilder(
+          builder: (context, constrains) {
+            return Expanded(
+              child: Container(
+                constraints: BoxConstraints(minWidth: 10, maxWidth: 250),
+                decoration: BoxDecoration(
+                  color: isUserMessage ? Colors.blue : Colors.grey[800],
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  message.text?.text?[0] ?? '',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ],
+    ));
   }
 }
