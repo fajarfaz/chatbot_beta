@@ -53,8 +53,9 @@ class _HomeState extends State<Home> {
             ? HexColor('#3C3A3A')
             : HexColor('#9000FF'),
         title: Text(
-          'Chat Bot',
+          'ChatBot',
           style: TextStyle(
+              fontSize: 24,
               fontWeight: FontWeight.w900,
               color:
                   themeValue == Brightness.dark ? Colors.white : Colors.black),
@@ -70,7 +71,7 @@ class _HomeState extends State<Home> {
               ),
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
-                vertical: 10,
+                vertical: 12,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -81,14 +82,12 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                           color: Colors.black87, fontFamily: 'Poppins'),
                       decoration: new InputDecoration(
+                        contentPadding: EdgeInsets.only(left: 20),
                         filled: true,
                         fillColor: Colors.white,
                         enabledBorder: new OutlineInputBorder(
-                            borderSide: new BorderSide(
-                                color: themeValue == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black),
-                            borderRadius: BorderRadius.circular(15)),
+                            borderSide: new BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20)),
                         hintStyle: TextStyle(
                           color: themeValue == Brightness.dark
                               ? Colors.white54
@@ -105,9 +104,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
+                    width: 70,
+                    height: 70,
+                    padding: const EdgeInsets.only(
+                      left: 20.0,
                     ),
                     child: CircleAvatar(
                       radius: 20,
@@ -265,15 +265,9 @@ class _MessageContainer extends StatelessWidget {
         isUserMessage
             ? Container()
             : Container(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.only(right: 15),
                 width: 60,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Image(
-                    image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuMuHvOGAgqWeLYyIJM_enw022bkLAIK1kwQ&usqp=CAU'),
-                  ),
-                ),
+                child: ClipRRect(child: Image.asset('assets/logo.png')),
               ),
         LayoutBuilder(
           builder: (context, constrains) {
@@ -281,14 +275,15 @@ class _MessageContainer extends StatelessWidget {
               child: Container(
                 constraints: BoxConstraints(minWidth: 10, maxWidth: 250),
                 decoration: BoxDecoration(
-                  color: isUserMessage ? Colors.blue : Colors.grey[800],
+                  color:
+                      isUserMessage ? Colors.purple.shade400 : Colors.grey[100],
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: const EdgeInsets.all(15),
                 child: Text(
                   message.text?.text?[0] ?? '',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: isUserMessage ? Colors.white : Colors.black,
                   ),
                 ),
               ),
