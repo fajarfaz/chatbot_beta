@@ -31,6 +31,7 @@ class _HomeState extends State<Home> {
   final TextEditingController messageController = TextEditingController();
   String state = 'intro';
   String question = '';
+  String student = '';
 
   List<Map<String, dynamic>> messages = [];
 
@@ -155,6 +156,7 @@ class _HomeState extends State<Home> {
         'message': text,
         'state': state,
         'question': question,
+        'student': student,
       }),
     );
     if (response.statusCode == 201 || response.statusCode == 200) {
@@ -165,6 +167,7 @@ class _HomeState extends State<Home> {
       chatAnswer = data['message'];
       state = data['state'];
       question = data['question'];
+      student = data['student'];
     } else {
       // If the server did not return a 201 CREATED response,
       // then throw an exception.
