@@ -1,11 +1,2 @@
-<<<<<<< HEAD
-2022/03/23-00:30:13.885 5e8 Reusing MANIFEST C:\Users\Faz\AppData\Local\Temp\flutter_tools.460687ab\flutter_tools_chrome_device.497f0332\Default\Site Characteristics Database/MANIFEST-000001
-2022/03/23-00:30:13.888 5e8 Recovering log #6
-2022/03/23-00:30:13.889 5e8 Reusing old log C:\Users\Faz\AppData\Local\Temp\flutter_tools.460687ab\flutter_tools_chrome_device.497f0332\Default\Site Characteristics Database/000006.log 
-2022/03/23-00:30:13.942 5e8 Delete type=0 #3
-=======
-2022/03/31-16:47:59.708 900 Reusing MANIFEST C:\Users\Siuyan\AppData\Local\Temp\flutter_tools.4861e0db\flutter_tools_chrome_device.c8e595ad\Default\Site Characteristics Database/MANIFEST-000001
-2022/03/31-16:47:59.709 900 Recovering log #6
-2022/03/31-16:47:59.709 900 Reusing old log C:\Users\Siuyan\AppData\Local\Temp\flutter_tools.4861e0db\flutter_tools_chrome_device.c8e595ad\Default\Site Characteristics Database/000006.log 
-2022/03/31-16:47:59.709 900 Delete type=0 #3
->>>>>>> 94b64339d9940cbeb53acc8b55e0abb5125d0e8a
+2022/04/03-22:29:11.286 2720 Creating DB C:\Users\Faz\AppData\Local\Temp\flutter_tools.8eb7ee2b\flutter_tools_chrome_device.a2d39428\Default\Site Characteristics Database since it was missing.
+2022/04/03-22:29:14.337 2720 Reusing MANIFEST C:\Users\Faz\AppData\Local\Temp\flutter_tools.8eb7ee2b\flutter_tools_chrome_device.a2d39428\Default\Site Characteristics Database/MANIFEST-000001
