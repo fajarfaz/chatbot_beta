@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2022/03/23-00:04:20.360 17a8 Reusing MANIFEST C:\Users\Faz\AppData\Local\Temp\flutter_tools.fce61f27\flutter_tools_chrome_device.41d8d4bf\Default\Site Characteristics Database/MANIFEST-000001
 2022/03/23-00:04:20.361 17a8 Recovering log #3
 2022/03/23-00:04:20.362 17a8 Level-0 table #6: started
@@ -5,3 +6,9 @@
 2022/03/23-00:04:20.378 17a8 Recovering log #6
 2022/03/23-00:04:20.379 17a8 Reusing old log C:\Users\Faz\AppData\Local\Temp\flutter_tools.fce61f27\flutter_tools_chrome_device.41d8d4bf\Default\Site Characteristics Database/000006.log 
 2022/03/23-00:04:20.393 17a8 Delete type=0 #3
+=======
+2022/03/31-12:05:41.893 1b60 Reusing MANIFEST C:\Users\Siuyan\AppData\Local\Temp\flutter_tools.f3d71dbc\flutter_tools_chrome_device.9c40c9e9\Default\Site Characteristics Database/MANIFEST-000001
+2022/03/31-12:05:41.894 1b60 Recovering log #6
+2022/03/31-12:05:41.894 1b60 Reusing old log C:\Users\Siuyan\AppData\Local\Temp\flutter_tools.f3d71dbc\flutter_tools_chrome_device.9c40c9e9\Default\Site Characteristics Database/000006.log 
+2022/03/31-12:05:41.895 1b60 Delete type=0 #3
+>>>>>>> 94b64339d9940cbeb53acc8b55e0abb5125d0e8a
