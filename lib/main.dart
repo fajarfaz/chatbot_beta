@@ -274,7 +274,7 @@ class _MessageContainer extends StatelessWidget {
               ),
         LayoutBuilder(
           builder: (context, constrains) {
-            return Expanded(
+            return Container(
               child: Container(
                 constraints: BoxConstraints(minWidth: 10, maxWidth: 250),
                 decoration: BoxDecoration(
