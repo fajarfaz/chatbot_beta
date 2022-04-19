@@ -46,12 +46,12 @@ class _HomeState extends State<Home> {
     var themeValue = MediaQuery.of(context).platformBrightness;
     return Scaffold(
       backgroundColor: themeValue == Brightness.dark
-          ? HexColor('#9000FF')
+          ? HexColor('#FFFFFF')
           : HexColor('#FFFFFF'),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: themeValue == Brightness.dark
-            ? HexColor('#3C3A3A')
+            ? HexColor('#9000FF')
             : HexColor('#9000FF'),
         title: Text(
           'ChatBot',
