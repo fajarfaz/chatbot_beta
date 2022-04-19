@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
               fontSize: 24,
               fontWeight: FontWeight.w900,
               color:
-                  themeValue == Brightness.dark ? Colors.white : Colors.black),
+                  themeValue == Brightness.dark ? Colors.white : Colors.white),
         ),
       ),
       body: SafeArea(
